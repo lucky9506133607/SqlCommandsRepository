@@ -1,0 +1,45 @@
+select * from EmployeeInfo
+
+select * from EmployeeInfo where EmpFname in('sanjay','sonia')
+
+select * from EmpPosition
+
+select * from EmpPosition where 
+
+Select DISTINCT E.EmpID, E.EmpFname, E.Department 
+FROM EmployeeInfo E, EmployeeInfo E1 
+WHERE E.Department = E1.Department AND E.EmpID != E1.EmpID
+
+select E.EmpFname,E.EmpLname,E.Department,
+
+
+select * from EmployeeInfo where Department in ('HR')
+select * from EmployeeInfo where Department like ('HR')
+select * from EmployeeInfo where Department='HR'
+
+SELECT * 
+FROM EmployeeInfo WHERE
+EmpID <= (SELECT COUNT(EmpID)/2 from EmployeeInfo)
+
+SELECT * 
+FROM EmployeeInfo WHERE
+EmpID <=(select count(EmpId)/2*2 from EmployeeInfo)
+
+select Top 2 * from EmployeeInfo Order by EmpID Desc
+
+
+select TOP 1 * from EmployeeInfo order by EmpId desc where (select * from EmployeeInfo where  
+EmpId<=(select count(EmpId)/2 from EmployeeInfo))
+
+select * from EmployeeInfo where EmpFname not in (NULL)
+
+select Gender,EmpFname from EmployeeInfo group by gender
+
+select EmpPosition,MIN(salary) as salary from EmpPosition group by EmpPosition having MIN(salary)>85000
+
+select distinct EmpPosition ,count(*) from EmpPosition group by EmpPosition having count(*)>1
+
+SELECT EmpPosition, COUNT(*) 
+FROM EmpPosition GROUP BY EmpPosition 
+HAVING COUNT(*) > 1;
+
